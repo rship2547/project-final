@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{752DD93A-62D8-4844-86C8-F257178D69FC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Thai</RootNamespace>
+    <AssemblyName>Thai</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.5\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.19.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.19.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.2.6\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.29\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlConnector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySqlConnector.2.1.10\lib\net471\MySqlConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.29\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.29\lib\net452\ZstdNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="bgg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bgg.Designer.cs">
+      <DependentUpon>bgg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bill.Designer.cs">
+      <DependentUpon>bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fisrtpage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="fisrtpage.Designer.cs">
+      <DependentUpon>fisrtpage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form10.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form10.Designer.cs">
+      <DependentUpon>Form10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form11.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form11.Designer.cs">
+      <DependentUpon>Form11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form3.Designer.cs">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form5.Designer.cs">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form7.Designer.cs">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form8.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form8.Designer.cs">
+      <DependentUpon>Form8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form9.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form9.Designer.cs">
+      <DependentUpon>Form9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="menu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="menu.Designer.cs">
+      <DependentUpon>menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="pay.Designer.cs">
+      <DependentUpon>pay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="table.Designer.cs">
+      <DependentUpon>table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="allmenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="allmenu.Designer.cs">
+      <DependentUpon>allmenu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="bgg.resx">
+      <DependentUpon>bgg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fisrtpage.resx">
+      <DependentUpon>fisrtpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form10.resx">
+      <DependentUpon>Form10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form11.resx">
+      <DependentUpon>Form11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form3.resx">
+      <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form5.resx">
+      <DependentUpon>Form5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form7.resx">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form8.resx">
+      <DependentUpon>Form8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form9.resx">
+      <DependentUpon>Form9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="menu.resx">
+      <DependentUpon>menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pay.resx">
+      <DependentUpon>pay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="table.resx">
+      <DependentUpon>table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="allmenu.resx">
+      <DependentUpon>allmenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\table.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\288398190_409728771075430_6789514093553388977_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\286887019_3231318887151607_1189587858709077926_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Laythai restaurant.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restaurant-in-valkenswaard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FRK2381.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\986bdd81b21c8f044cad48ef37b94539.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ดีไซน์ที่ไม่มีชื่อ.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ดีไซน์ที่ไม่มีชื่อ.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ดีไซน์ที่ไม่มีชื่อ%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ดีไซน์ที่ไม่มีชื่อ1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\252295835_609841426825323_1408735021841395939_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\288479968_2164210200440148_2587505452116949922_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ดีไซน์ที่ไม่มีชื่อ1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlimited Pasta Fest!.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ดีไซน์ที่ไม่มีชื่อ2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlimited Pasta Fest! %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\288991221_1180712322769751_4449318448500233535_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\288991221_1180712322769751_4449318448500233535_n1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlimited Pasta Fest! %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlimited Pasta Fest! %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\287906129_547820616889862_1337748662245801417_n1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\288163110_738384690784881_2499296862077075065_n2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\287933051_584259466649640_2502455368170713214_n1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\288147237_422240386434068_8706997685319803072_n2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\287907181_453458849935815_5115353919395428635_n1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\288723866_1095473381069253_180562388623836639_n1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\287920647_735794771207820_678908212291940289_n2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\288728648_973977846618280_6715682761272686802_n1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\288999211_347116617504196_2753257891870552547_n1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\288493087_1945812612275681_4907534636938753131_n1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food &amp; beverage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food &amp; beverage %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food &amp; beverage %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food &amp; beverage %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food &amp; beverage %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food &amp; beverage %282%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pay %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ดีไซน์ที่ไม่มีชื่อ3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food &amp; beverage %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pay %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pay %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pay %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ดีไซน์ที่ไม่มีชื่อ %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food &amp; beverage %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ดีไซน์ที่ไม่มีชื่อ %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow-in-circular-button-black-symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ดีไซน์ที่ไม่มีชื่อ %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food &amp; beverage %283%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pay %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food &amp; beverage %283%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\food &amp; beverage %281%293.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lay Thai res.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Unlimited Pasta Fest! %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\f14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Lay Thai res1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
